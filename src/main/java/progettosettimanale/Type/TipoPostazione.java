@@ -1,4 +1,4 @@
-package ProgettoSettimanale.GestionePrenotazioni.Type;
+package progettosettimanale.Type;
 
 public enum TipoPostazione {
 

@@ -1,13 +1,15 @@
-package ProgettoSettimanale.GestionePrenotazioni.Class;
+package progettosettimanale.Class;
 
-import ProgettoSettimanale.GestionePrenotazioni.Type.TipoPostazione;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.stereotype.Component;
+import progettosettimanale.Type.TipoPostazione;
 
 import java.util.List;
 
 @Entity
 @Data
+@Component
 public class Postazione {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "postazione_id")
@@ -20,15 +22,14 @@ public class Postazione {
     private TipoPostazione tipoPostazione;
 
     private int numMaxOccupanti;
-    private int numOccupanti;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "edificio_id" )
     private Edificio edificio;
 
-    @OneToOne
-    private Utente utente;
 
     @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> prenotazioni;
+
+
 }

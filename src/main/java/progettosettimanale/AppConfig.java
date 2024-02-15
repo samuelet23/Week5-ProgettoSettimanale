@@ -1,13 +1,12 @@
-package ProgettoSettimanale.GestionePrenotazioni.Bean;
+package progettosettimanale;
 
-import ProgettoSettimanale.GestionePrenotazioni.Class.Edificio;
-import ProgettoSettimanale.GestionePrenotazioni.Class.Postazione;
-import ProgettoSettimanale.GestionePrenotazioni.Class.Prenotazione;
-import ProgettoSettimanale.GestionePrenotazioni.Class.Utente;
-import ProgettoSettimanale.GestionePrenotazioni.Type.TipoPostazione;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import progettosettimanale.Class.Edificio;
+import progettosettimanale.Class.Postazione;
+import progettosettimanale.Class.Prenotazione;
+import progettosettimanale.Class.Utente;
+import progettosettimanale.Type.TipoPostazione;
 
 import java.time.LocalDate;
 
@@ -17,7 +16,7 @@ public class AppConfig {
     @Bean("edificioA")
     public Edificio edificioA() {
         Edificio edificio = new Edificio();
-        edificio.setName("Edificio A");
+        edificio.setNome("Edificio A");
         edificio.setIndirizzo("Via Principale 123");
         edificio.setCitta("Roma");
         return edificio;
@@ -26,7 +25,7 @@ public class AppConfig {
     @Bean("edificioB")
     public Edificio edificioB() {
         Edificio edificio = new Edificio();
-        edificio.setName("Edificio B");
+        edificio.setNome("Edificio B");
         edificio.setIndirizzo("Via Secondaria 456");
         edificio.setCitta("Milano");
         return edificio;
@@ -59,6 +58,7 @@ public class AppConfig {
         utente.setNome("Paolo");
         utente.setCognome("Bianchi");
         utente.setEmail("paolo@example.com");
+
         return utente;
     }
 
@@ -78,6 +78,7 @@ public class AppConfig {
         prenotazione.setData(LocalDate.now());
         prenotazione.setPostazione(postazione1);
         prenotazione.setUtente(utente1);
+
         return prenotazione;
     }
 

@@ -1,13 +1,14 @@
-package ProgettoSettimanale.GestionePrenotazioni.Class;
+package progettosettimanale.Class;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.ListResourceBundle;
 
 @Entity
 @Data
+@Component("utente")
 public class Utente {
 
     @Id
@@ -15,7 +16,6 @@ public class Utente {
     @SequenceGenerator(name = "utente_id", initialValue = 0, allocationSize = 1)
     private int id;
 
-    @Column(unique = true)
     private String username;
 
     private String nome;
@@ -24,5 +24,6 @@ public class Utente {
 
     @OneToMany(mappedBy = "utente")
     private List<Prenotazione> prenotazioniInCorso;
+
 
 }

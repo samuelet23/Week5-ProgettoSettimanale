@@ -1,4 +1,4 @@
-package ProgettoSettimanale.GestionePrenotazioni.Exception;
+package progettosettimanale.Exception;
 
 public class CustomException extends Exception{
     public CustomException(String message){
