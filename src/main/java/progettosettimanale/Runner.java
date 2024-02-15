@@ -16,21 +16,25 @@ import progettosettimanale.Repository.EdificioRepository;
 import progettosettimanale.Repository.PostazioneRepository;
 import progettosettimanale.Repository.PrenotazioneRepository;
 import progettosettimanale.Repository.UtenteRepository;
+import progettosettimanale.Service.EdificioService;
+import progettosettimanale.Service.PostazioneService;
+import progettosettimanale.Service.PrenotazioneService;
+import progettosettimanale.Service.UtenteService;
 
 @Component
 public class Runner implements CommandLineRunner {
 
     @Autowired
-    private PostazioneRepository postazioneRepository;
+    private PostazioneService postazioneService;
 
     @Autowired
-    private EdificioRepository edificioRepository;
+    private EdificioService edificioService;
 
     @Autowired
-    private UtenteRepository utenteRepository;
+    private UtenteService utenteService;
 
     @Autowired
-    private PrenotazioneRepository prenotazioneRepository;
+    private PrenotazioneService prenotazioneService;
 
     final static Logger logger = LoggerFactory.getLogger("progettosettimanale");
 
@@ -41,7 +45,7 @@ public class Runner implements CommandLineRunner {
 
         Edificio edificio1 = ctx.getBean("edificioA", Edificio.class);
         try{
-        edificioRepository.save(edificio1);
+        edificioService.save(edificio1);
             logger.info("Edificio aggiunto");
         }catch (Exception e){
             logger.error(e.getMessage());
@@ -49,7 +53,7 @@ public class Runner implements CommandLineRunner {
 
         Postazione postazione1 = ctx.getBean("postazione1", Postazione.class);
         try{
-            postazioneRepository.save(postazione1);
+            postazioneService.save(postazione1);
             logger.info("Postazione aggiunta");
         }catch (Exception e){
             logger.error(e.getMessage());
@@ -57,7 +61,7 @@ public class Runner implements CommandLineRunner {
 
         Utente utente1 = ctx.getBean("utente1", Utente.class);
         try{
-            utenteRepository.save(utente1);
+            utenteService.save(utente1);
             logger.info("Utente aggiunto");
         }catch (Exception e){
             logger.error(e.getMessage());
@@ -65,7 +69,7 @@ public class Runner implements CommandLineRunner {
 
         Prenotazione prenotazione1 = ctx.getBean("prenotazione1", Prenotazione.class);
         try{
-            prenotazioneRepository.save(prenotazione1);
+            prenotazioneService.save(prenotazione1);
             logger.info("Prenotazione effetuata");
         }catch (Exception e){
             logger.error(e.getMessage());

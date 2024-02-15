@@ -2,6 +2,7 @@ package progettosettimanale.Service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import progettosettimanale.Class.Postazione;
 import progettosettimanale.Class.Prenotazione;
 import progettosettimanale.Class.Utente;
@@ -11,6 +12,7 @@ import progettosettimanale.Repository.PrenotazioneRepository;
 import java.time.LocalDate;
 import java.util.Optional;
 
+@Service
 public class PrenotazioneService {
 
     @Autowired
